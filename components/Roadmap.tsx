@@ -15,9 +15,10 @@ export default function Roadmap() {
       theme: "Fix and measure",
       phaseIndex: "Phase I",
       items: [
+        "Carmichael Hotel pilot rebuild",
         "Website clean-up checklist across all hotel sites",
         "Unified group direct booking offer and promo code",
-        "Conversion and e-commerce tracking in Google Tag Manager",
+        "Conversion and e-commerce tracking in Google Tag Manager, Meta Pixel on every site",
         "Comprehensive guest data and platform audit",
       ],
     },

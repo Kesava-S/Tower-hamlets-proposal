@@ -26,7 +26,7 @@ export default function FinalCTA() {
           </h2>
 
           <p className="text-sm sm:text-lg text-cream/80 max-w-xl mx-auto leading-relaxed mb-9">
-            I&apos;ll walk you through these findings and how we could start in the first week.
+            I&apos;ll walk you through these findings and how we could start with the Carmichael pilot in week one.
           </p>
 
           {/* Big Gold Button */}

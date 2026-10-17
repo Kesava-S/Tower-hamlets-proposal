@@ -8,13 +8,30 @@ import {
   AlertCircle,
   Sparkles,
   Search,
+  Building2,
 } from "lucide-react";
 
 export default function Opportunities() {
   const opportunities = [
     {
-      id: "booking-journey",
+      id: "hamlet-brand",
       letter: "A",
+      icon: Building2,
+      title: "One Hamlet brand",
+      found: (
+        <>
+          4 of 5 hotel sites don&apos;t mention or link to Hamlet Hotels, and each
+          uses its own design and platform.
+        </>
+      ),
+      matters:
+        "Every booking builds a separate small brand instead of one growing group brand.",
+      quickWin:
+        "A shared 'Part of Hamlet Hotels' strip and group links on every site.",
+    },
+    {
+      id: "booking-journey",
+      letter: "B",
       icon: Compass,
       title: "Booking journey and direct bookings",
       found: (
@@ -34,6 +51,10 @@ export default function Opportunities() {
           <code className="text-xs bg-white px-1.5 py-0.5 rounded border border-warm-border font-mono text-navy font-semibold">
             BOOKDIRECT
           </code>
+          ,{" "}
+          <code className="text-xs bg-white px-1.5 py-0.5 rounded border border-warm-border font-mono text-navy font-semibold">
+            3NTS2
+          </code>
           ).
         </>
       ),
@@ -44,7 +65,7 @@ export default function Opportunities() {
     },
     {
       id: "website-experience",
-      letter: "B",
+      letter: "C",
       icon: MonitorCheck,
       title: "Website experience",
       found: (
@@ -52,7 +73,7 @@ export default function Opportunities() {
           The group site shows <strong>no reviews</strong> and an{" "}
           <strong>expired offer from May 2025</strong>. The Reading site still has
           template placeholder text. Thurrock links to a different hotel&apos;s website.
-          Hull has broken links and an empty photo gallery.
+          Hull has dead menu links and stock photos in its gallery.
         </>
       ),
       matters:
@@ -61,34 +82,35 @@ export default function Opportunities() {
     },
     {
       id: "guest-data",
-      letter: "C",
+      letter: "D",
       icon: Database,
       title: "Guest data and database",
       found: (
         <>
-          Only <strong>Thurrock</strong> collects emails (Stampede). No group guest
-          database or central CRM is visible across the group.
+          3 hotels collect guest emails in 3 different tools (Reading newsletter,
+          Kidderminster events form, Thurrock Stampede). No shared guest database.
         </>
       ),
       matters:
         "Past guests, wedding enquiries and event leads are not being followed up, which is the cheapest source of repeat bookings.",
       quickWin:
-        "Combine guest data from SynXis, eviivo and Stampede into one segmented database (leisure, business, weddings, events, local diners).",
+        "Combine SynXis, eviivo and email sign-up data into one segmented database (leisure, business, weddings, events, local diners).",
     },
     {
       id: "social-media",
-      letter: "D",
+      letter: "E",
       icon: Share2,
       title: "Social media and reach",
       found: (
         <>
           The group Instagram has about <strong>202 followers</strong> and Maidstone
-          about <strong>206</strong>.
+          about <strong>206</strong>. The Meta Pixel is only on the Reading site, so
+          social ads can&apos;t be measured elsewhere.
         </>
       ),
       matters: "Low reach means relying more on commission-paying OTAs.",
       quickWin:
-        "Local influencer and affiliate partnerships per hotel (Kent, Reading, Hull, Essex) with tracked promo codes, plus a monthly content calendar.",
+        "Local influencer and affiliate partnerships per hotel (Kent, Reading, Hull, Essex) with tracked promo codes, Meta Pixel on every site, plus a monthly content calendar.",
     },
   ];
 
@@ -100,7 +122,7 @@ export default function Opportunities() {
             Section 02 · Digital Audit Findings
           </p>
           <h2 className="font-serif text-2xl sm:text-4xl font-bold text-navy tracking-tight mb-3">
-            Findings: 4 clear opportunities
+            Findings: 5 clear opportunities
           </h2>
           <p className="text-sm sm:text-base text-charcoal/80">
             A systematic audit of the Hamlet Hotels digital footprint, framed around quick commercial returns.
@@ -112,7 +134,11 @@ export default function Opportunities() {
         {opportunities.map((item, index) => {
           const Icon = item.icon;
           return (
-            <ScrollReveal key={item.id} delayMs={index * 90}>
+            <ScrollReveal
+              key={item.id}
+              delayMs={index * 80}
+              className={index === 4 ? "md:col-span-2 md:max-w-xl md:mx-auto w-full" : ""}
+            >
               <div className="luxury-card h-full rounded-card p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden group">
                 <div>
                   {/* Card Header with Letter Plaque */}

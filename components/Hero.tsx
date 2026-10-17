@@ -32,14 +32,14 @@ export default function Hero() {
       {/* Main Headline */}
       <h1 className="font-serif text-2xl sm:text-4xl lg:text-[52px] font-bold text-navy leading-[1.15] tracking-tight max-w-4xl mb-4 sm:mb-6">
         More direct bookings and returning guests across Hamlet Hotels
-        <span className="block text-base sm:text-2xl lg:text-[30px] font-serif font-normal italic text-navy/85 mt-2 sm:mt-3">
-          by better Management and Marketing on Central Reservation Systems
+        <span className="block text-base sm:text-2xl lg:text-[28px] font-serif font-normal italic text-navy/85 mt-2 sm:mt-3">
+          through one brand, better guest data and smart automation
         </span>
       </h1>
 
-      {/* Subline */}
+      {/* Intro line */}
       <p className="text-sm sm:text-lg text-charcoal/80 max-w-2xl leading-relaxed mb-6 sm:mb-8 font-normal">
-        I studied your 5 hotel websites, booking setup and social channels. Here are 4 clear opportunities and a step-by-step plan to act on them.
+        I reviewed all 5 Hamlet hotel websites, your booking setup and social channels. Here are 5 clear opportunities, a pilot, and a step-by-step plan.
       </p>
 
       {/* 3 Small Stat Chips */}
@@ -48,19 +48,19 @@ export default function Hero() {
           <div className="w-4 h-4 rounded-full bg-navy/5 flex items-center justify-center">
             <Building2 className="w-2.5 h-2.5 text-navy" />
           </div>
-          <span>6 hotels on SynXis + GDS</span>
+          <span>5 hotels, 5 website platforms</span>
         </div>
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-warm-border shadow-soft text-xs sm:text-sm text-navy font-medium">
           <div className="w-4 h-4 rounded-full bg-navy/5 flex items-center justify-center">
             <Layers className="w-2.5 h-2.5 text-navy" />
           </div>
-          <span>4 different booking engines</span>
+          <span>4 booking systems</span>
         </div>
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-warm-border shadow-soft text-xs sm:text-sm text-navy font-medium">
           <div className="w-4 h-4 rounded-full bg-navy/5 flex items-center justify-center">
             <Mail className="w-2.5 h-2.5 text-navy" />
           </div>
-          <span>1 of 5 hotels collecting guest emails</span>
+          <span>4 of 5 sites don&apos;t mention Hamlet</span>
         </div>
       </div>
 

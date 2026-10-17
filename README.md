@@ -21,18 +21,21 @@ Sent by **Kesavaram Sundararaj**, a London-based marketing and automation profes
 ## Structure of the Page
 
 1. **Hero (Above the fold)**: "Prepared October 2026" badge, eyebrow, headline, subline, 3 stat chips, gold CTA button, and secondary link.
-2. **What you've built well**: 3 green-accented cards highlighting distribution, fast growth, and owner model.
-3. **Findings: 4 opportunities (PAS cards)**:
-   - Booking journey and direct bookings (SynXis, eviivo, direct-book.com, Best Western, promo codes)
-   - Website experience (placeholder copy, broken links, expired offers)
-   - Guest data and database (Stampede vs lack of central group CRM)
-   - Social media and reach (Instagram follower benchmarks and local influencer partnerships)
-4. **The plan: what I will build and run**: 4 numbered pillars in a 2x2 grid.
-5. **Step-by-step roadmap**: 3 phases (Step 1: Fix and measure, Step 2: Build the engine, Step 3: Grow) plus success metrics.
-6. **Why me: proof of work**: Homestay origin story, 3 stat cards with real numbers, and MSc credential.
-7. **Personal note**: Warm centered note in italic serif (*"Vanakkam Prasanna..."*).
-8. **Final CTA**: "Let's talk for 20 minutes", gold button, and direct contact line.
-9. **Footer**: Single respectful attribution line with zero promotional branding.
+2. **Section 01 · Foundations (What you've built well)**: 4 green-accented cards highlighting distribution, fast growth, owner model, and good foundations to copy.
+3. **Hotel-by-hotel snapshot**: 6 property audit cards (Group site, Maidstone, Hotel 1843 Reading, Gainsborough House Kidderminster, The Carmichael Hull, Thurrock Essex) with mobile carousel and desktop 3-column grid.
+4. **Section 02 · Findings: 5 clear opportunities (PAS cards)**:
+   - Opportunity A: One Hamlet brand
+   - Opportunity B: Booking journey and direct bookings (with 3NTS2 promo code)
+   - Opportunity C: Website experience (dead links and stock photos in Hull gallery)
+   - Opportunity D: Guest data and database (3 tools collecting emails without a shared database)
+   - Opportunity E: Social media and reach (Meta Pixel only on Reading site)
+5. **Section 03 · The plan: what I will build and run**: 4 numbered pillars in a 2x2 grid.
+6. **Suggested pilot: The Carmichael Hotel, Hull**: Single highlighted card with gold border.
+7. **Step-by-step roadmap**: 3 phases (Step 1: Fix and measure with Carmichael pilot & Meta Pixel, Step 2: Build the engine, Step 3: Grow) plus success metrics.
+8. **Why me: proof of work**: Homestay origin story, 3 stat cards with real numbers, and MSc credential.
+9. **Personal note**: Warm centered note in italic serif (*"Vanakkam Prasanna..."*).
+10. **Final CTA**: "Let's talk for 20 minutes" with Carmichael pilot mention, gold button, and direct contact line.
+11. **Footer**: Single respectful attribution line reviewed on 17 October 2026.
 
 ---
 

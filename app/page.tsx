@@ -2,8 +2,10 @@ import React from "react";
 import StickyTopBar from "@/components/StickyTopBar";
 import Hero from "@/components/Hero";
 import Strengths from "@/components/Strengths";
+import HotelSnapshot from "@/components/HotelSnapshot";
 import Opportunities from "@/components/Opportunities";
 import PlanPillars from "@/components/PlanPillars";
+import SuggestedPilot from "@/components/SuggestedPilot";
 import Roadmap from "@/components/Roadmap";
 import ProofOfWork from "@/components/ProofOfWork";
 import PersonalNote from "@/components/PersonalNote";
@@ -22,36 +24,46 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* 2. What you've built well (strengths first) */}
+      {/* 2. Section 01: What you've built well */}
       <Strengths />
 
       <SectionDivider />
 
-      {/* 3. Findings: 4 opportunities (PAS cards) */}
+      {/* 3. Hotel-by-hotel snapshot */}
+      <HotelSnapshot />
+
+      <SectionDivider />
+
+      {/* 4. Section 02: Findings: 5 clear opportunities */}
       <Opportunities />
 
       <SectionDivider />
 
-      {/* 4. The plan: what I will build and run */}
+      {/* 5. Section 03: The plan: what I will build and run */}
       <PlanPillars />
 
       <SectionDivider />
 
-      {/* 5. Step-by-step roadmap */}
+      {/* 6. Suggested pilot: The Carmichael Hotel, Hull */}
+      <SuggestedPilot />
+
+      <SectionDivider />
+
+      {/* 7. Step-by-step roadmap */}
       <Roadmap />
 
       <SectionDivider />
 
-      {/* 6. Why me: proof of work */}
+      {/* 8. Why me: proof of work */}
       <ProofOfWork />
 
-      {/* 7. Personal note */}
+      {/* 9. Personal note */}
       <PersonalNote />
 
-      {/* 8. Final CTA */}
+      {/* 10. Final CTA */}
       <FinalCTA />
 
-      {/* 9. Footer */}
+      {/* 11. Footer */}
       <Footer />
     </main>
   );

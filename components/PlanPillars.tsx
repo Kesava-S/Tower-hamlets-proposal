@@ -19,7 +19,7 @@ export default function PlanPillars() {
       number: "02",
       icon: Database,
       title: "Marketing database",
-      description: "One clean guest database combining all booking engines and Wi-Fi data, segmented and analysed on a monthly cycle.",
+      description: "One clean guest database combining booking engine and email sign-up data, plus Wi-Fi data where available, segmented and analysed on a monthly cycle.",
       highlights: [
         "Consolidate SynXis, eviivo and Stampede guest records",
         "Segment by leisure, business, weddings, events and dining",
@@ -43,6 +43,7 @@ export default function PlanPillars() {
       title: "Influencer and affiliate growth",
       description: "Targeted local creators selected specifically for each hotel location, equipped with unique tracked codes and monthly ROI reporting.",
       highlights: [
+        "One Hamlet identity across all hotel sites",
         "Dedicated local creators for Kent, Reading, Hull and Essex",
         "Unique voucher codes with direct margin attribution",
         "Structured monthly creator calendar and performance reports",

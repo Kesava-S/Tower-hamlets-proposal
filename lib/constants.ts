@@ -33,6 +33,6 @@ export const PROPOSAL_DETAILS = {
     linkedIn: "https://www.linkedin.com/in/kesavaram-s/",
     degree: "MSc Marketing Analytics, Birkbeck, University of London",
   },
-  auditDate: "14 October 2026",
+  auditDate: "17 October 2026",
   preparedDate: "October 2026",
 };
