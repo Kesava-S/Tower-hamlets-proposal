@@ -2,106 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
-:root {
-  --bg-cream: #FAF8F3;
-  --text-charcoal: #2B2B2B;
-  --navy-primary: #14213D;
-  --gold-accent: #C9A227;
-}
-
-html {
-  scroll-behavior: smooth;
-  background-color: #FAF8F3;
-  color: #2B2B2B;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  background-color: #FAF8F3;
-  /* Subtle luxury paper ambient gradient */
-  background-image: 
-    radial-gradient(circle at 50% 0%, rgba(201, 162, 39, 0.04) 0%, transparent 45%),
-    radial-gradient(circle at 80% 40%, rgba(20, 33, 61, 0.02) 0%, transparent 40%),
-    radial-gradient(circle at 20% 80%, rgba(20, 33, 61, 0.02) 0%, transparent 40%);
-  color: #2B2B2B;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-::selection {
-  background-color: #14213D;
-  color: #FAF8F3;
-}
-
-/* Subtle scroll fade-in */
-.fade-in-section {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.fade-in-section.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Luxury card dual-border styling */
-.luxury-card {
-  background-color: #FFFFFF;
-  border: 1px solid #E5E0D5;
-  box-shadow: 0 4px 20px -2px rgba(20, 33, 61, 0.05), 0 1px 4px 0 rgba(20, 33, 61, 0.03);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.luxury-card:hover {
-  border-color: #D6CFBF;
-  box-shadow: 0 10px 30px -4px rgba(20, 33, 61, 0.08), 0 2px 8px -1px rgba(20, 33, 61, 0.04);
-}
-
-/* Gold CTA button styling */
-.gold-cta-btn {
-  background: linear-gradient(135deg, #D4AF37 0%, #C9A227 100%);
-  color: #0C1425;
-  box-shadow: 0 4px 16px -2px rgba(201, 162, 39, 0.38), 0 2px 6px -1px rgba(201, 162, 39, 0.2);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.gold-cta-btn:hover {
-  background: linear-gradient(135deg, #DBB742 0%, #BA9420 100%);
-  box-shadow: 0 8px 24px -2px rgba(201, 162, 39, 0.48), 0 4px 10px -1px rgba(201, 162, 39, 0.3);
-  transform: translateY(-1px);
-}
-
-.gold-cta-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px -1px rgba(201, 162, 39, 0.3);
-}
-
-/* Reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
+@layer base {
   html {
-    scroll-behavior: auto !important;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
   }
-  
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
+  :focus-visible {
+    @apply outline-none ring-2 ring-[#0071e3] ring-offset-1;
+  }
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
 
-  .fade-in-section {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-
-  .gold-cta-btn:hover {
-    transform: none !important;
-  }
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
