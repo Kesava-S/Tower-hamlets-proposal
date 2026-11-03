@@ -8,9 +8,11 @@ export interface SocialGroup {
 
 export type HotelType = 'hamlet' | 'hamlet, duplicate' | 'competitor';
 
+export type TownName = 'Hull' | 'Reading' | 'Maidstone' | 'Kidderminster' | 'Thurrock';
+
 export interface HotelAccount {
   name: string;
-  town: 'Hull' | 'Reading' | 'Maidstone';
+  town: TownName;
   handle: string;
   type: HotelType;
   followers: number;
@@ -156,6 +158,51 @@ export const benchmarkData: BenchmarkData = {
       posts: 269,
       recentLikes: '30, 10',
     },
+    {
+      name: 'Gainsborough House Hotel',
+      town: 'Kidderminster',
+      handle: 'gainsboroughhouse',
+      type: 'hamlet',
+      followers: 192,
+      posts: 34,
+      recentLikes: '1 to 8 (from search results)',
+    },
+    {
+      name: 'Hogarths Stone Manor',
+      town: 'Kidderminster',
+      handle: 'hogarthsstonemanor',
+      type: 'competitor',
+      followers: 5828,
+      posts: 732,
+      recentLikes: '-',
+    },
+    {
+      name: 'Brockencote Hall Hotel',
+      town: 'Kidderminster',
+      handle: 'brockencotehall',
+      type: 'competitor',
+      followers: 4564,
+      posts: 908,
+      recentLikes: '-',
+    },
+    {
+      name: 'The Thurrock Hotel',
+      town: 'Thurrock',
+      handle: 'thethurrockhotel',
+      type: 'hamlet',
+      followers: 922,
+      posts: 445,
+      recentLikes: 'about 2 to 3 (from search results)',
+    },
+    {
+      name: 'Orsett Hall Hotel',
+      town: 'Thurrock',
+      handle: 'orsetthall',
+      type: 'competitor',
+      followers: 6498,
+      posts: 2561,
+      recentLikes: '-',
+    },
   ],
 };
 
@@ -209,7 +256,7 @@ export function getSortedGroups(data: BenchmarkData) {
 }
 
 export interface TownComparison {
-  town: 'Hull' | 'Reading' | 'Maidstone';
+  town: TownName;
   hamlet: HotelAccount;
   competitor: HotelAccount;
   gapMultiplier: number;
@@ -217,7 +264,7 @@ export interface TownComparison {
 
 // Worked out town comparisons for Section D
 export function getTownComparisons(data: BenchmarkData): TownComparison[] {
-  const towns: ('Hull' | 'Reading' | 'Maidstone')[] = ['Hull', 'Reading', 'Maidstone'];
+  const towns: TownName[] = ['Hull', 'Reading', 'Maidstone', 'Kidderminster', 'Thurrock'];
 
   return towns.map((town) => {
     const townHotels = data.hotels.filter((h) => h.town === town);
@@ -235,9 +282,10 @@ export function getTownComparisons(data: BenchmarkData): TownComparison[] {
     const topCompetitor = competitors[0];
 
     // Gap = competitor ÷ Hamlet, rounded
-    const gapMultiplier = topHamlet && topCompetitor && topHamlet.followers > 0
-      ? Math.round(topCompetitor.followers / topHamlet.followers)
-      : 0;
+    const gapMultiplier =
+      topHamlet && topCompetitor && topHamlet.followers > 0
+        ? Math.round(topCompetitor.followers / topHamlet.followers)
+        : 0;
 
     return {
       town,

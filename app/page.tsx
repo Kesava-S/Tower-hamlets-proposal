@@ -22,10 +22,8 @@ import {
   MapPin,
   AlertTriangle,
   Award,
-  Swords,
   TrendingDown,
   ArrowUpRight,
-  ShieldAlert,
 } from 'lucide-react';
 
 export default function ComparePage() {
@@ -308,13 +306,18 @@ export default function ComparePage() {
           </div>
 
           {/* Red strip under the tiles */}
-          <div className="flex items-center justify-center gap-3 rounded-2xl bg-[#E04F34] px-5 py-3.5 text-center text-xs sm:text-sm font-black text-white shadow-md">
+          <div className="flex items-center justify-center gap-2.5 rounded-2xl bg-[#E04F34] px-5 py-3.5 text-center text-xs sm:text-sm font-black text-white shadow-md">
             <AlertTriangle className="h-4 w-4 shrink-0 text-amber-200" />
-            <span>Us today: 2 hotels have 2 pages each, mostly text graphics.</span>
+            <span>
+              Us today: 5 hotels, 7 pages,
+              <br className="sm:hidden" /> mostly text graphics.
+              <br className="hidden sm:inline" /> Thurrock still shows
+              <br className="sm:hidden" /> the Best Western logo.
+            </span>
           </div>
         </section>
 
-        {/* D. OUR HOTELS VS THE BEST IN TOWN (3 cards side by side) */}
+        {/* D. OUR HOTELS VS THE BEST IN TOWN (5 cards in a 3 + 2 grid, stacked on mobile) */}
         <section className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
@@ -322,87 +325,102 @@ export default function ComparePage() {
                 Our hotels vs the best in town
               </h2>
               <p className="text-xs font-semibold text-slate-500 mt-0.5">
-                Head-to-head local follower comparison
+                Head-to-head local follower comparison across 5 towns
               </p>
             </div>
             <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
-              3 Towns
+              5 Towns
             </span>
           </div>
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-            {townComparisons.map((item) => (
-              <div
-                key={item.town}
-                className="executive-card flex flex-col justify-between rounded-3xl p-6 sm:p-7"
-              >
-                <div>
-                  {/* Town header badge */}
-                  <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                    <div className="flex items-center gap-1.5">
-                      <MapPin className="h-4 w-4 text-slate-400" />
-                      <h3 className="text-xs font-black uppercase tracking-wider text-slate-900">
-                        {item.town}
-                      </h3>
+          {/* 3 + 2 Grid: 6-column layout on desktop (first 3 span 2, next 2 span 3) */}
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-6">
+            {townComparisons.map((item, index) => {
+              // 3 in first row (span 2 each = 6), 2 in second row (span 3 each = 6)
+              const colSpanClass =
+                index < 3 ? 'lg:col-span-2' : 'lg:col-span-3';
+
+              return (
+                <div
+                  key={item.town}
+                  className={`executive-card flex flex-col justify-between rounded-3xl p-6 sm:p-7 ${colSpanClass}`}
+                >
+                  <div>
+                    {/* Town header badge */}
+                    <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                      <div className="flex items-center gap-1.5">
+                        <MapPin className="h-4 w-4 text-slate-400" />
+                        <h3 className="text-xs font-black uppercase tracking-wider text-slate-900">
+                          {item.town}
+                        </h3>
+                      </div>
+                      <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-600">
+                        Local matchup
+                      </span>
                     </div>
-                    <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-bold text-slate-600">
-                      Local matchup
+
+                    {/* Two big numbers facing each other */}
+                    <div className="mt-5 grid grid-cols-2 items-start gap-2 relative">
+                      {/* VS Badge in center */}
+                      <div className="absolute left-1/2 top-8 -translate-x-1/2 flex h-7 w-7 items-center justify-center rounded-full bg-white border border-slate-200 text-[10px] font-black text-slate-400 shadow-xs z-10">
+                        VS
+                      </div>
+
+                      {/* Hamlet side */}
+                      <div className="rounded-2xl bg-red-50/50 border border-red-100 p-3.5 text-left">
+                        <span className="inline-block rounded-md bg-[#E04F34] px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white">
+                          Hamlet
+                        </span>
+                        <p
+                          className="text-xs font-bold text-slate-900 truncate mt-1.5"
+                          title={item.hamlet.name}
+                        >
+                          {item.hamlet.name}
+                        </p>
+                        <div className="text-4xl sm:text-5xl font-black text-[#E04F34] tracking-tight leading-none mt-2">
+                          {formatFollowers(item.hamlet.followers)}
+                        </div>
+                        <span className="text-[10px] text-slate-400 font-semibold mt-1 block">
+                          followers
+                        </span>
+                      </div>
+
+                      {/* Competitor side */}
+                      <div className="rounded-2xl bg-emerald-50/50 border border-emerald-100 p-3.5 text-right">
+                        <span className="inline-block rounded-md bg-[#16A34A] px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white">
+                          Best in town
+                        </span>
+                        <p
+                          className="text-xs font-bold text-slate-900 truncate mt-1.5"
+                          title={item.competitor.name}
+                        >
+                          {item.competitor.name}
+                        </p>
+                        <div className="text-4xl sm:text-5xl font-black text-[#16A34A] tracking-tight leading-none mt-2">
+                          {formatFollowers(item.competitor.followers)}
+                        </div>
+                        <span className="text-[10px] text-slate-400 font-semibold mt-1 block">
+                          followers
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Gap banner underneath */}
+                  <div className="mt-5 rounded-2xl bg-[#E04F34]/10 border border-[#E04F34]/30 p-3 flex items-center justify-between">
+                    <div className="flex items-center gap-1.5">
+                      <TrendingDown className="h-4 w-4 text-[#E04F34]" />
+                      <span className="text-xs font-extrabold text-slate-700">
+                        Follower gap:
+                      </span>
+                    </div>
+                    <span className="text-base font-black text-[#E04F34] tracking-tight">
+                      {item.gapMultiplier}x behind
                     </span>
                   </div>
-
-                  {/* Two big numbers facing each other */}
-                  <div className="mt-5 grid grid-cols-2 items-start gap-2 relative">
-                    {/* VS Badge in center */}
-                    <div className="absolute left-1/2 top-8 -translate-x-1/2 flex h-7 w-7 items-center justify-center rounded-full bg-white border border-slate-200 text-[10px] font-black text-slate-400 shadow-xs z-10">
-                      VS
-                    </div>
-
-                    {/* Hamlet side */}
-                    <div className="rounded-2xl bg-red-50/50 border border-red-100 p-3.5 text-left">
-                      <span className="inline-block rounded-md bg-[#E04F34] px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white">
-                        Hamlet
-                      </span>
-                      <p className="text-xs font-bold text-slate-900 truncate mt-1.5" title={item.hamlet.name}>
-                        {item.hamlet.name}
-                      </p>
-                      <div className="text-4xl sm:text-5xl font-black text-[#E04F34] tracking-tight leading-none mt-2">
-                        {formatFollowers(item.hamlet.followers)}
-                      </div>
-                      <span className="text-[10px] text-slate-400 font-semibold mt-1 block">
-                        followers
-                      </span>
-                    </div>
-
-                    {/* Competitor side */}
-                    <div className="rounded-2xl bg-emerald-50/50 border border-emerald-100 p-3.5 text-right">
-                      <span className="inline-block rounded-md bg-[#16A34A] px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white">
-                        Best in town
-                      </span>
-                      <p className="text-xs font-bold text-slate-900 truncate mt-1.5" title={item.competitor.name}>
-                        {item.competitor.name}
-                      </p>
-                      <div className="text-4xl sm:text-5xl font-black text-[#16A34A] tracking-tight leading-none mt-2">
-                        {formatFollowers(item.competitor.followers)}
-                      </div>
-                      <span className="text-[10px] text-slate-400 font-semibold mt-1 block">
-                        followers
-                      </span>
-                    </div>
-                  </div>
                 </div>
-
-                {/* Gap banner underneath */}
-                <div className="mt-5 rounded-2xl bg-[#E04F34]/10 border border-[#E04F34]/30 p-3 flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <TrendingDown className="h-4 w-4 text-[#E04F34]" />
-                    <span className="text-xs font-extrabold text-slate-700">Follower gap:</span>
-                  </div>
-                  <span className="text-base font-black text-[#E04F34] tracking-tight">
-                    {item.gapMultiplier}x behind
-                  </span>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
@@ -517,10 +535,16 @@ export default function ComparePage() {
                 </p>
               </div>
 
-              {/* Table per town: Hull, Reading, Maidstone */}
-              {(['Hull', 'Reading', 'Maidstone'] as const).map((town) => {
-                const townHotels = benchmarkData.hotels.filter((h) => h.town === town);
-                const bestFollowers = Math.max(...townHotels.map((h) => h.followers));
+              {/* Table per town: Hull, Reading, Maidstone, Kidderminster, Thurrock */}
+              {(
+                ['Hull', 'Reading', 'Maidstone', 'Kidderminster', 'Thurrock'] as const
+              ).map((town) => {
+                const townHotels = benchmarkData.hotels.filter(
+                  (h) => h.town === town
+                );
+                const bestFollowers = Math.max(
+                  ...townHotels.map((h) => h.followers)
+                );
 
                 return (
                   <div key={town} className="space-y-3">
@@ -543,7 +567,10 @@ export default function ComparePage() {
                         <tbody className="divide-y divide-slate-100">
                           {townHotels.map((hotel, idx) => {
                             return (
-                              <tr key={idx} className="hover:bg-slate-50/70 transition-colors">
+                              <tr
+                                key={idx}
+                                className="hover:bg-slate-50/70 transition-colors"
+                              >
                                 <td className="px-4 py-3 font-bold text-slate-900">
                                   {hotel.name}
                                 </td>
@@ -598,7 +625,10 @@ export default function ComparePage() {
                     </thead>
                     <tbody className="divide-y divide-slate-100">
                       {benchmarkData.groups.map((group) => (
-                        <tr key={group.handle} className="hover:bg-slate-50/70 transition-colors">
+                        <tr
+                          key={group.handle}
+                          className="hover:bg-slate-50/70 transition-colors"
+                        >
                           <td className="px-4 py-3 font-bold text-slate-900">
                             {group.name}
                           </td>
@@ -642,6 +672,9 @@ export default function ComparePage() {
                 <p>• Likes from 3 recent posts, read by hand.</p>
                 <p>
                   • Bespoke Hotels announced it is closing the Chester Grosvenor (BBC, Mar 2026). Use as a social media example only.
+                </p>
+                <p>
+                  • Orsett Hall is closed for refurbishment (per its Instagram).
                 </p>
               </div>
             </div>
